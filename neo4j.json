@@ -1,0 +1,30 @@
+{
+    "base_url": "http://127.0.0.1:7474/db/data",
+    "version": "0.1",
+    "methods": {
+        "get_node": {
+            "optional_params": [
+            ],
+            "required_params": [
+                "node"
+            ],
+            "path": "/node/:node",
+            "method": "GET"
+        },
+        "create_node": {
+            "required_params": [
+            ],
+            "required_payload": true,
+            "path": "/node/",
+            "method": "POST"
+        }
+    },
+    "formats": [
+        "json"
+    ],
+    "name": "Neo4j",
+    "authority": "GITHUB:magnachef",
+    "meta": {
+        "documentation": "http://docs.neo4j.org/chunked/milestone/rest-api.html"
+    }
+}
