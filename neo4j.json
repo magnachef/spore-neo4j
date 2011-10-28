@@ -2,21 +2,143 @@
     "base_url": "http://127.0.0.1:7474/db/data",
     "version": "0.1",
     "methods": {
+        "root": {
+            "path": "/",
+            "method": "GET",
+            "expected_status": [200]
+        },
         "get_node": {
-            "optional_params": [
-            ],
             "required_params": [
                 "node"
             ],
             "path": "/node/:node",
-            "method": "GET"
+            "method": "GET",
+            "expected_status": [200]
         },
         "create_node": {
-            "required_params": [
-            ],
-            "required_payload": true,
             "path": "/node/",
-            "method": "POST"
+            "method": "POST",
+            "expected_status": [201]
+        },
+        "set_node_properties": {
+            "required_params": [
+                "id"
+            ],
+            "path": "/node/:id/properties",
+            "method": "PUT",
+            "expected_status": [204]
+        },
+        "node_properties": {
+            "required_params": [
+                "id"
+            ],
+            "path": "/node/:id/properties",
+            "method": "GET",
+            "expected_status": [200, 204]
+        },
+        "delete_node_properties": {
+            "required_params": [
+                "id"
+            ],
+            "path": "/node/:id/properties",
+            "method": "DELETE",
+            "expected_status": [204]
+        },
+        "node_property": {
+            "required_params": [
+                "id", "property"
+            ],
+            "path": "/node/:id/properties/:property",
+            "method": "GET",
+            "expected_status": [200]
+        },
+        "delete_node_property": {
+            "required_params": [
+                "id", "property"
+            ],
+            "path": "/node/:id/properties/:property",
+            "method": "DELETE",
+            "expected_status": [204]
+        },
+        "delete_node": {
+            "required_params": [
+                "id"
+            ],
+            "path": "/node/:id",
+            "method": "DELETE",
+            "expected_status": [204]
+        },
+        "add_edge": {
+            "required_params": [
+                "id", "to", "data", "type"
+            ],
+            "path": "/node/:id/relationships",
+            "method": "POST",
+            "expected_status": [201]
+        },
+        "set_edge_properties": {
+            "required_params": [
+                "id"
+            ],
+            "path": "/relationship/:id/properties",
+            "method": "PUT",
+            "expected_status": [204]
+        },
+        "edge_properties": {
+            "required_params": [
+                "id"
+            ],
+            "path": "/relationship/:id/properties",
+            "method": "GET",
+            "expected_status": [200]
+        },
+        "delete_edge_properties": {
+            "required_params": [
+                "id"
+            ],
+            "path": "/relationship/:id/properties",
+            "method": "DELETE",
+            "expected_status": [204]
+        },
+        "set_edge_property": {
+            "required_params": [
+                "id", "property"
+            ],
+            "path": "/relationship/:id/properties/:property",
+            "method": "PUT",
+            "expected_status": [204]
+        },
+        "edge_property": {
+            "required_params": [
+                "id", "property"
+            ],
+            "path": "/relationship/:id/properties/:property",
+            "method": "GET",
+            "expected_status": [200]
+        },
+        "delete_edge_property": {
+            "required_params": [
+                "id", "property"
+            ],
+            "path": "/relationship/:id/properties/:property",
+            "method": "DELETE",
+            "expected_status": [204]
+        },
+        "delete_edge": {
+            "required_params": [
+                "id"
+            ],
+            "path": "/relationship/:id",
+            "method": "DELETE",
+            "expected_status": [204]
+        },
+        "get_edges": {
+            "required_params": [
+                "id", "dir", "types"
+            ],
+            "path": "/node/:id/relationships/:dir/:types",
+            "method": "GET",
+            "expected_status": [200]
         }
     },
     "formats": [
